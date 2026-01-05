@@ -1,0 +1,9 @@
+# TPCH generated data (never commit)
+data/*.tbl
+
+# Build artifacts
+build/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+
