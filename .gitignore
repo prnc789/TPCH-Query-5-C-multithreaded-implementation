@@ -6,4 +6,6 @@ build/
 CMakeCache.txt
 CMakeFiles/
 Makefile
-
+Runtime:
+Single-threaded: ~1.16 seconds (SF=2)
+4-threaded: ~1.14 seconds (SF=2)
