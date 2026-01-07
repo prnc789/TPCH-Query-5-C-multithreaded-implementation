@@ -18,10 +18,7 @@ vector<string> split(const string& s) {
         tokens.push_back(token);
     return tokens;
 }
-// Function to parse command line arguments
 bool parseArgs(int argc, char* argv[], string& r_name, string& start_date,string& end_date, int& num_threads,string& table_path, string& result_path) {
-// TODO: Implement command line argument parsing
-// Example: --r_name ASIA --start_date 1994-01-01 --end_date 1995-01-01 --threads 4 --table_path /path/to/tables --result_path /path/to/results
     for (int i = 1; i < argc; i++) {
         string arg = argv[i];
         if (arg == "--r_name") r_name = argv[++i];
@@ -52,9 +49,8 @@ bool readTable(const string& file,
     }
     return true;
 }
-// Function to read TPCH data from the specified paths
 bool readTPCHData(const string& table_path,vector<map<string,string>>& customer_data,vector<map<string,string>>& orders_data,vector<map<string,string>>& lineitem_data,vector<map<string,string>>& supplier_data,vector<map<string,string>>& nation_data,vector<map<string,string>>& region_data) {
-    // TODO: Implement reading TPCH data from files
+    
 
     return
         readTable(table_path + "/customer.tbl", customer_data,
@@ -105,9 +101,8 @@ void worker(int start, int end,
         local_result[itNationName->second] += price * (1.0 - discount);
     }
 }
-// Function to execute TPCH Query 5 using multithreading
 bool executeQuery5(const string& r_name, const string& start_date,const string& end_date, int num_threads,const vector<map<string,string>>& customer_data,const vector<map<string,string>>& orders_data,const vector<map<string,string>>& lineitem_data,const vector<map<string,string>>& supplier_data,const vector<map<string,string>>& nation_data,const vector<map<string,string>>& region_data,map<string,double>& results) {
-// TODO: Implement TPCH Query 5 using multithreading
+
     string regionkey;
     for (auto& r : region_data)
         if (r.at("r_name") == r_name)
@@ -161,9 +156,8 @@ bool executeQuery5(const string& r_name, const string& start_date,const string& 
 
     return true;
 }
-// Function to output results to the specified path
+
 bool outputResults(const string& result_path,const map<string,double>& results) {
-// TODO: Implement outputting results to a file
     ofstream out(result_path);
     if (!out.is_open()) return false;
     out << std::fixed << std::setprecision(2);
